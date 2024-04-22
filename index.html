@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+
+    <header>
+        <iframe class="nav" src="nav.html" frameborder="0" scrolling="no"></iframe>
+    </header>
+
+    <main>
+
+        <div class="banner">
+            <a href="#"><img class="banner1" src="./images/banner.png" alt=""></a>
+            <figure class="logo"><img src="./images/logo.png" alt=""></figure>
+        </div>
+        <section class="sale">
+            <h1 class="title_y">SALE <br>―</h1>
+        </section>
+    </main>
+    <div id="root"></div>
+    <!-- react -->
+    <script type="text/babel">
+        const cloth = ['1', '2', '3','4','5','6']
+        console.log(cloth)
+        const App = () => {
+            return (
+                <>
+
+                    <section className='sale_content'>
+                        {cloth.map((p) => {
+                            return (
+                                <article className="product" key={p.cloth}>
+                                    <a className="cloth" href="#">
+                                        <img src="./images/cloth/cl1.webp" alt="" />
+                                        <h2>ELF日系可愛配色胸口刺繡舒適透氣上衣（100%棉）</h2>
+                                    </a>
+                                    <h2 className="tag">短袖</h2>
+                                    <div className="price">
+                                        <h2>NT.</h2>
+                                        <h3>1,080</h3>
+                                    </div>
+                                    <button className="addcart"><img src="./images/icon/addcart.png" alt="" /></button>
+                                </article>
+                            )
+                        })}
+                    </section>
+                </>
+            )
+        }
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+    <!-- react -->
+    <section class="sale">
+        <button class="view"><a href="">VIEW MORE</a></button>
+    </section>
+    <footer>
+        <div class="footer_top">
+            <figure class="text_y"><img src="./images/text_y.png" alt=""></figure>
+            <div class="contact">
+                <a href="#"><img src="./images/icon/Line.png" alt=""></a>
+                <a href="#"><img src="./images/icon/Instagram.png" alt=""></a>
+                <a href="#"><img src="./images/icon/Facebook.png" alt=""></a>
+                <small>TEL：03-5333-0802
+                    <br>MAIL：okayama-accent-tshirt@gmail.com
+                </small>
+            </div>
+        </div>
+        <div class="footer_buttom">
+            <ul class="nav_buttom">
+                <li><a href="#">首頁</a></li>
+                <li><a href="#">限時特賣</a></li>
+                <li><a href="#">所有商品</a></li>
+                <li><a href="#">會員中心</a></li>
+                <li><a href="#">購物車</a></li>
+                <small>Copyright &copy; 2024 PEKABOO All Rights Reserved.</small>
+            </ul>
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
