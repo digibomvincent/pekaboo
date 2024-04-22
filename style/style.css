@@ -369,7 +369,7 @@ a {
 
 .view:hover {
     animation: view 1s;
-    box-shadow: 0 0 0 1em transparent;
+    box-shadow: 0 0 0 3em transparent;
 
 }
 
