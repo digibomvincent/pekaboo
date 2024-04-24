@@ -18,7 +18,7 @@
         <iframe class="nav" src="nav.html" frameborder="0" scrolling="no"></iframe>
     </header>
 
-    <main>
+    <main id="index">
 
         <div class="banner">
             <a href="#"><img class="banner1" src="./images/banner.png" alt=""></a>
@@ -38,12 +38,12 @@
                 <>
 
                     <section className='sale_content'>
-                        {cloth.map((p) => {
+                        {cloth.map((p,index) => {
                             return (
-                                <article className="product" key={p.cloth}>
+                                <article className="product" key={index}>
                                     <a className="cloth" href="#">
                                         <img src="./images/cloth/cl1.webp" alt="" />
-                                        <h2>ELF日系可愛配色胸口刺繡舒適透氣上衣（100%棉）</h2>
+                                        <h2>日系可愛配色胸口刺繡舒適透氣上衣（100%棉）</h2>
                                     </a>
                                     <h2 className="tag">短袖</h2>
                                     <div className="price">
