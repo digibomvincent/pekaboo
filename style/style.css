@@ -356,19 +356,30 @@ a {
 }
 
 @keyframes view {
-    100% {
+    0% {
+        box-shadow: 0 0 10px 1em transparent;
+    }
+
+    20% {
+        color: var(--green);
+        text-shadow: var(--green) 0 0;
+        -webkit-text-stroke: 0 var(--green);
+    }
+
+    80% {
         box-shadow: 0 0 0 0 var(--yellow);
     }
 
     100% {
-        text-shadow: var(--yellow) 0 0;
+        text-shadow: var(--green) -1px 1px;
+        font-weight: bold;
+        color: var(--yellow);
+        -webkit-text-stroke: 1px var(--green);
     }
 }
 
 .view:hover {
-    animation: view 1s;
-    box-shadow: 0 0 0 3em transparent;
-
+    animation: view 1s forwards;
 }
 
 /* footer */
@@ -643,8 +654,9 @@ a {
 .content.active {
     display: block;
 }
-.logo_roll{
-    height:90px;
+
+.logo_roll {
+    height: 90px;
     transition: transform 1s ease;
     transform: translateX(-232.5px);
 }
