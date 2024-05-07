@@ -15,8 +15,13 @@
 <body>
 
     <header>
-        <iframe class="nav" src="nav.html" frameborder="0" scrolling="no"></iframe>
+        <div class="index_top " id="index_top">
+            <img src="./images/logo.png" alt="">
+            <img src="./images/text_g.png" alt="pekaboo logo">
+        </div>
+        <div class="blank"></div>
     </header>
+    <iframe class="nav" id="nav" src="nav.html" frameborder="0" scrolling="no"></iframe>
 
     <main id="index">
 
@@ -31,14 +36,14 @@
     <div id="root"></div>
     <!-- react -->
     <script type="text/babel">
-        const cloth = ['1', '2', '3','4','5','6']
+        const cloth = ['1', '2', '3', '4', '5', '6']
         console.log(cloth)
         const App = () => {
             return (
                 <>
 
                     <section className='sale_content'>
-                        {cloth.map((p,index) => {
+                        {cloth.map((p, index) => {
                             return (
                                 <article className="product" key={index}>
                                     <a className="cloth" href="cloth.html" target="_top">
@@ -64,10 +69,33 @@
     <section class="sale">
         <button class="view"><a href="">VIEW MORE</a></button>
     </section>
-    
+
     <footer>
         <iframe class="footer" src="./footer.html" frameborder="0"></iframe>
     </footer>
+    <!-- nav_l -->
+    <script>
+        window.onload = function () {  /* 問老師 */
+            var iframe = document.getElementById('nav');
+            var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+            var small_expand = iframeDocument.getElementById('small_expand');
+            small_expand.classList.add('shrink');
+        }
+        window.addEventListener('scroll', function () {
+            var index_top = document.getElementById('index_top');
+            var iframe = document.getElementById('nav');
+            var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+            var small_expand = iframeDocument.getElementById('small_expand');
+            var scrollHeight = window.scrollY; // 獲取滾動的高度
+            if (scrollHeight > 280) {
+                index_top.style.height = '0px'; // 當滾動超過 280 時，將高度設置為 0
+                small_expand.style.width = '296px';
+            } else {
+                index_top.style.height = 280 - scrollHeight + 'px'; // 當滾動小於等於 280 時，根據邏輯設置高度
+                small_expand.style.width = scrollHeight + 'px';
+            }
+        });
+    </script>
 </body>
 
 </html>

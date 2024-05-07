@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+
+    <header>
+        <iframe class="nav" src="nav.html" frameborder="0" scrolling="no"></iframe>
+    </header>
+
+    <main id="styling">
+        <section class="category">
+            <h2>所有風格 / 女裝 / 夏天 </h2>
+            <ul class="styling_nav">
+                <li>篩選</li>
+                <li>上傳領回饋!</li>
+            </ul>
+            <div>
+                <ul class="page">
+                    <h3>168</h3>
+                    <h3>ITEMS</h3>
+                    <li><a href="#">&lt;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&gt;</a></li>
+                </ul>
+            </div>
+        </section>
+        <!-- <img src="./images/styling/m1.svg" alt=""> -->
+    </main>
+    <div id="root"></div>
+    <!-- react -->
+    <script type="text/babel">
+        const styling = ['1', '2', '3', '4', '5', '6']
+        console.log(styling)
+        const App = () => {
+            return (
+                <>
+
+                    <section className='sale_content'>
+                        {styling.map((p) => {
+                            return (
+                                <article className="product" key={p.styling}>
+                                    <a className="cloth" href="" target="_top">
+                                        <img src="./images/styling/m1.svg" alt=""/>
+                                    </a>
+                                    <div className="styling_info">
+                                        <figure className="styling_head">
+                                            <img src="./images/styling/m1h.svg" alt=""/>
+                                        </figure>
+                                        <div >
+                                            <div className="styling_user">
+                                                <h2>bella7777</h2>
+                                                <h2>165 <span>cm</span></h2>
+                                            </div>
+                                            <h2>尺寸: <span>S</span> </h2>
+                                        </div>
+                                    </div>
+                                </article>
+                            )
+                        })}
+                    </section>
+                </>
+            )
+        }
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+    <!-- react -->
+    <section class="category">
+        <div>
+            <ul class="page">
+                <h3>168</h3>
+                <h3>ITEMS</h3>
+                <li><a href="#">&lt;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&gt;</a></li>
+            </ul>
+        </div>
+    </section>
+    <footer>
+        <iframe class="footer" src="./footer.html" frameborder="0"></iframe>
+    </footer>
+
+
+</body>
+
+</html>

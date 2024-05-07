@@ -180,7 +180,7 @@ a {
 
 /* top */
 .topbar {
-    position: fixed;
+    /* position: fixed; */
     /* 加了就不會自動延展 */
     width: 100%;
     display: flex;
@@ -189,7 +189,44 @@ a {
     align-items: center;
     /* 副軸垂直對齊 */
     padding: 25px;
-    border-bottom: 1px solid #3A684E;
+}
+
+.index_top {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: fixed;
+    height: 280px;
+}
+
+
+.index_top>img:nth-child(1) {
+    height: 167px;
+    width: 171px;
+
+}
+
+.index_top>img:nth-child(2) {
+    height: 165px;
+    width: 531px;
+}
+
+.blank {
+    height: 280px;
+}
+
+.small_expand {
+    overflow: hidden;
+}
+
+.shrink {
+    width: 0px;
+}
+
+.small_expand img {
+    width: 296px;
 }
 
 .text_small {
@@ -222,8 +259,12 @@ a {
 
 .nav {
     width: 100%;
-    height: 11.8vh;
+    height: 90px;
     /* iframe有預設高*/
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 1px solid #3A684E;
 }
 
 .logo {
@@ -383,10 +424,11 @@ a {
 }
 
 /* footer */
-.footer{
+.footer {
     width: 100%;
     height: 295px;
 }
+
 .footer_top {
     display: flex;
     flex-direction: column;
@@ -663,4 +705,30 @@ a {
     height: 90px;
     transition: transform 1s ease;
     transform: translateX(-232.5px);
+}
+
+/* styling */
+.styling_nav {
+    display: flex;
+}
+
+.styling_nav>* {
+    width: 150px;
+    height: 45px;
+    margin-right: 15px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+.styling_info {
+    display: flex;
+}
+
+.styling_head {
+    width: 40px;
+}
+
+.styling_user {
+    display: flex;
 }
