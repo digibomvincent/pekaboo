@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./style/style.css">
 </head>
 
-<body>
+<body onload="loadNav()">
 
     <header>
         <div class="index_top " id="index_top">
@@ -75,7 +75,13 @@
     </footer>
     <!-- nav_l -->
     <script>
-        window.onload = function () {  /* 問老師 */
+        // window.onload = function () {  /* 問老師 */
+        //     var iframe = document.getElementById('nav');
+        //     var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+        //     var small_expand = iframeDocument.getElementById('small_expand');
+        //     small_expand.classList.add('shrink');
+        // }
+        function loadNav(){
             var iframe = document.getElementById('nav');
             var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
             var small_expand = iframeDocument.getElementById('small_expand');
