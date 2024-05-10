@@ -10,11 +10,22 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <title>Document</title>
     <link rel="stylesheet" href="./style/style.css">
+    <script src="./js/js.js"></script>
 </head>
 
 <body>
-
-
+    <!-- <div>
+        <figure class="face1_box">
+            <img class="face1" src="./images/logo.png" alt="">
+        </figure>
+        <figure class="face2_box">
+            <img class="face2" src="./images/face/face.png" alt="">
+            <img class="eye_l" src="./images/face/eye.png" alt="">
+            <img class="eye_r" src="./images/face/eye.png" alt="">
+            <img class="mouth" src="./images/face/mouth.png" alt="">
+        </figure>
+    </div> -->
+   
     <iframe class="nav" src="nav.html" frameborder="0" scrolling="no"></iframe>
 
 
@@ -55,7 +66,17 @@
         const App = () => {
             return (
                 <>
-
+                    <div className='gogo'>
+                        <figure id='face1_box' className="face1_box">
+                            <img className="face1" src="./images/logo.png" alt="" />
+                        </figure>
+                        <figure className="face2_box">
+                            <img className="face2" src="./images/face/face.png" alt="" />
+                            <img className="eye_l" src="./images/face/eye.png" alt="" />
+                            <img className="eye_r" src="./images/face/eye.png" alt="" />
+                            <img className="mouth" src="./images/face/mouth.png" alt="" />
+                        </figure>
+                    </div>
                     <section className='sale_content'>
                         {cloth.map((p) => {
                             return (
@@ -69,7 +90,7 @@
                                         <h2>NT.</h2>
                                         <h3>1,080</h3>
                                     </div>
-                                    <button className="addcart"><img src="./images/icon/addcart.png" alt="" /></button>
+                                    <button className="addcart" onMouseOver={laugh}><img src="./images/icon/addcart.png" alt="" /></button>
                                 </article>
                             )
                         })}
