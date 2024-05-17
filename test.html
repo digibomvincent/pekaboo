@@ -36,10 +36,51 @@
         .content.active {
             display: block;
         }
+
+        /* 初始導航欄樣式 */
+        .navbar {
+            position: fixed;
+            background-color: #333;
+            color: white;
+            height: 150px;
+            font-size: 150px;
+            transition: height 0.3s;
+            /* 添加過渡效果 */
+        }
+
+        /* 收縮導航欄樣式 */
+        .navbar.shrink {
+            height: 0px;
+            /* 縮小padding */
+        }
+
+        /* 添加一些內容以便滾動 */
+        .content0 {
+            height: 2000px;
+        }
     </style>
 </head>
 
 <body>
+    <script>
+        const inputString = "a,10,b,12";
+        const parts = inputString.split(","); // 将字符串分割成数组
+
+        const result = [];
+        for (let i = 0; i < parts.length; i += 2) {
+            const name = parts[i];
+            const price = parseInt(parts[i + 1]); // 将价格字符串转换为整数
+
+            result.push({ name, price });
+        }
+
+        result.forEach(obj => console.log(obj));
+    </script>
+
+
+    <div class="navbar" id="navbar">Navigation BarNavigation</div>
+
+    <div class="content0"></div>
     <div class="tabs">
         <button class="tab active" onclick="openTab('tab1')">Tab 1</button>
         <button class="tab" onclick="openTab('tab2')">Tab 2</button>
@@ -75,6 +116,14 @@
             var activeTab = document.querySelector('[onclick="openTab(\'' + tabId + '\')"]');
             activeTab.classList.add('active');
         }
+        window.addEventListener('scroll', function () {
+            var navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) { // 這裡可以根據需要調整滾動多少時開始收縮
+                navbar.classList.add('shrink');
+            } else {
+                navbar.classList.remove('shrink');
+            }
+        });
     </script>
 </body>
 
