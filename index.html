@@ -23,17 +23,6 @@
         <div class="blank"></div>
     </header>
     <iframe class="nav" id="nav" src="nav.html" frameborder="0" scrolling="no"></iframe>
-
-    <!-- <main id="index">
-
-        <div class="banner">
-            <a href="#"><img class="banner1" src="./images/banner.png" alt=""></a>
-            <figure class="logo"><img src="./images/logo.png" alt=""></figure>
-        </div>
-        <section class="sale">
-            <h1 class="title_y">SALE <br>―</h1>
-        </section>
-    </main> -->
     <div id="root"></div>
     <!-- react -->
     <script type="text/babel">
@@ -165,16 +154,37 @@
             )
         }
         const App = () => {
+            const [showCart, setShowCart] = useState(false);
+            const toggleCart = () => {
+                setShowCart(!showCart);/* 改為相反值 */
+            };
+            // Make toggleCart accessible globally
+            window.toggleCart = toggleCart;
             return (
                 <>
                     <main id="index">
-
-                        <div class="banner">
-                            <a href="#"><img class="banner1" src="./images/banner.png" alt=""/></a>
-                            <figure class="logo"><img src="./images/logo.png" alt=""/></figure>
+                        {showCart && (
+                            /* 如果 && 前面的表達式為 true，則渲染後面的內容 */
+                            <div className='cart_content'>
+                                <h2>共有商品(1)</h2>
+                                <hr />
+                                <div className='box'>
+                                    <img src={`./images/cloth/cl1.webp`} alt="" />
+                                    <div>
+                                        <h2>日系可愛配色胸口刺繡舒適透氣上衣</h2>
+                                        <h2>數量:1</h2>
+                                        <h2>NT.1080</h2>
+                                    </div>
+                                </div>
+                                <div className='cart_view'><a href="">前往購物車</a></div>
+                            </div>
+                        )}
+                        <div className="banner">
+                            <a href="#"><img className="banner1" src="./images/banner.png" alt="" /></a>
+                            <figure className="logo"><img src="./images/logo.png" alt="" /></figure>
                         </div>
-                        <section class="sale">
-                            <h1 class="title_y">SALE <br/>―</h1>
+                        <section className="sale">
+                            <h1 className="title_y">SALE <br />―</h1>
                         </section>
                         <section className='sale_content'>
                             {
@@ -186,8 +196,8 @@
                         <section className="sale">
                             <button className="view"><a href="">VIEW MORE</a></button>
                         </section>
-                        <section class="sale">
-                            <h1 class="title_y">TOP <br/>―</h1>
+                        <section className="sale">
+                            <h1 className="title_y">TOP <br />―</h1>
                         </section>
                         <section className='sale_content'>
                             {
@@ -203,7 +213,8 @@
                 </>
             )
         }
-        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+        ReactDOM.createRoot(document.getElementById('root')).render(
+            <App />);
     </script>
     <!-- react -->
 
@@ -212,6 +223,7 @@
         <iframe class="footer" src="./footer.html" frameborder="0"></iframe>
     </footer>
     <!-- nav_l -->
+    <script src="./js/script.js"></script>
     <script>
         // window.onload = function () {  /* 問老師 */
         //     var iframe = document.getElementById('nav');
@@ -224,7 +236,8 @@
             var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
             var small_expand = iframeDocument.getElementById('small_expand');
             small_expand.classList.add('shrink');
-        }
+        };
+
         window.addEventListener('scroll', function () {
             var index_top = document.getElementById('index_top');
             var iframe = document.getElementById('nav');
@@ -239,6 +252,7 @@
                 small_expand.style.width = scrollHeight + 'px';
             }
         });
+
     </script>
 </body>
 
