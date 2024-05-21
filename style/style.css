@@ -407,7 +407,7 @@ a {
 }
 
 .topbar>.text_small>ul,
-.topbar>nav>ul{
+.topbar>nav>ul {
     display: flex;
 }
 
@@ -430,11 +430,134 @@ ul.subs {
     position: absolute;
     background-color: var(--blue1);
     width: 150px;
-    top: 70px;
+    top: 71px;
+    height: 393px;
     /* 父層的105% */
+    border-bottom-right-radius: 75px;
+    border-bottom-left-radius: 75px;
 }
-ul.subs img{
+
+ul.subs li {
+    padding-top: 80px;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+ul.subs h1 {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--green);
+}
+
+
+ul.subs li:nth-child(1)::before,
+ul.subs li:nth-child(1):after,
+ul.subs li:nth-child(2)::before,
+ul.subs li:nth-child(2):after,
+ul.subs li:nth-child(3)::before,
+ul.subs li:nth-child(3):after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 40px;
     width: 70px;
+    height: 70px;
+    transition: opacity 0.8s ease;
+}
+
+/* 上卓 */
+ul.subs li:nth-child(1)::before {
+    background: url(/images/nav/wtop.svg);
+    opacity: 1;
+}
+
+ul.subs li:nth-child(1)::after {
+    background: url(/images/nav/wtop_hover.svg);
+    opacity: 0;
+}
+
+ul.subs li:nth-child(1):hover::before {
+    opacity: 0;
+}
+
+ul.subs li:nth-child(1):hover::after {
+    opacity: 1;
+}
+
+ul.subs li:nth-child(1):hover {
+    background-color: var(--blue2);
+}
+
+/* 下卓 */
+ul.subs li:nth-child(2)::before {
+    background: url(/images/nav/wdown.svg);
+    opacity: 1;
+}
+
+ul.subs li:nth-child(2)::after {
+    background: url(/images/nav/wdown_hover.svg);
+    opacity: 0;
+}
+
+ul.subs li:nth-child(2):hover::before {
+    opacity: 0;
+}
+
+ul.subs li:nth-child(2):hover::after {
+    opacity: 1;
+}
+
+ul.subs li:nth-child(2):hover {
+    background-color: var(--blue2);
+}
+
+/* 連身 */
+ul.subs li:nth-child(3)::before {
+    background: url(/images/nav/wbody.svg);
+    opacity: 1;
+}
+
+ul.subs li:nth-child(3)::after {
+    background: url(/images/nav/wbody_hover.svg);
+    opacity: 0;
+}
+
+ul.subs li:nth-child(3):hover::before {
+    opacity: 0;
+}
+
+ul.subs li:nth-child(3):hover::after {
+    opacity: 1;
+}
+
+ul.subs li:nth-child(3):hover {
+    background-color: var(--blue2);
+}
+
+/* 第三層 */
+ul.subs2 {
+    display: flex;
+    height: 106px;
+    width: 175px;
+    background-color: var(--blue2);
+    position: absolute;
+    left: 100%;
+    top: 0;
+    border-bottom-right-radius:53px;
+    border-top-right-radius:53px;
+}
+
+ul.subs2 p {
+    padding: 0 15px;
+    line-height: 53px;
+    font-size: 1rem;
+    color: var(--green);
+}
+ul.subs2 p:hover {
+    padding: 0 15px;
+    line-height: 53px;
+    color: var(--b60);
+    text-decoration: underline;
 }
 
 .topbar nav li {
