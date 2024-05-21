@@ -299,6 +299,7 @@ a {
     top: 90px;
     right: 30px;
     z-index: 4;
+    display: none;
 }
 
 .cart_content>*,
@@ -343,6 +344,10 @@ a {
 }
 
 /* nav */
+#nav_html {
+    background-color: transparent;
+}
+
 .topbar {
     /* position: fixed; */
     /* 加了就不會自動延展 */
@@ -353,6 +358,9 @@ a {
     align-items: center;
     /* 副軸垂直對齊 */
     padding: 25px;
+    background-color: var(--bg);
+    height: 90px;
+    border-bottom: 1px solid #3A684E;
 }
 
 .index_top {
@@ -383,6 +391,7 @@ a {
 
 .small_expand {
     overflow: hidden;
+    margin-right: 10px;
 }
 
 .shrink {
@@ -397,24 +406,35 @@ a {
     display: flex;
 }
 
-.text_small a {
-    margin-right: 10px;
-}
-
-.topbar nav ul {
+.topbar>.text_small>ul,
+.topbar>nav>ul{
     display: flex;
 }
 
-.text_small ul {
-    display: flex;
+
+.menu>li {
+    position: relative;
+    float: left;
+    width: 150px;
 }
 
-.menu li {
-    margin: 0 20px;
+.menu>li>a {
     font-size: 1.5rem;
-    display: flex;
-    align-items: center;
     color: var(--green);
+    text-align: center;
+    line-height: 50px;
+}
+
+ul.subs {
+    /* 沒空格是他自己 */
+    position: absolute;
+    background-color: var(--blue1);
+    width: 150px;
+    top: 70px;
+    /* 父層的105% */
+}
+ul.subs img{
+    width: 70px;
 }
 
 .topbar nav li {
@@ -423,12 +443,11 @@ a {
 
 .nav {
     width: 100%;
-    height: 90px;
+    height: 100%;
     /* iframe有預設高*/
-    position: sticky;
-    top: 0;
+    position: absolute;
+    top: 280;
     z-index: 1;
-    border-bottom: 1px solid #3A684E;
 }
 
 .logo {
@@ -439,6 +458,7 @@ a {
 }
 
 .banner {
+    margin-top: 90px;
     position: relative;
     width: 100%;
     margin-bottom: 80px;

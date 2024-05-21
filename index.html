@@ -154,17 +154,18 @@
             )
         }
         const App = () => {
-            const [showCart, setShowCart] = useState(false);
+        /*     const [showCart, setShowCart] = useState(false);
             const toggleCart = () => {
-                setShowCart(!showCart);/* 改為相反值 */
+                setShowCart(!showCart);改為相反值 
             };
-            // Make toggleCart accessible globally
-            window.toggleCart = toggleCart;
+             Make toggleCart accessible globally
+            window.toggleCart = toggleCart; */
             return (
                 <>
                     <main id="index">
-                        {showCart && (
-                            /* 如果 && 前面的表達式為 true，則渲染後面的內容 */
+                       {/*寫到nav裡面了 
+                         {showCart && (
+                            如果 && 前面的表達式為 true，則渲染後面的內容 
                             <div className='cart_content'>
                                 <h2>共有商品(1)</h2>
                                 <hr />
@@ -178,7 +179,7 @@
                                 </div>
                                 <div className='cart_view'><a href="">前往購物車</a></div>
                             </div>
-                        )}
+                        )} */}
                         <div className="banner">
                             <a href="#"><img className="banner1" src="./images/banner.png" alt="" /></a>
                             <figure className="logo"><img src="./images/logo.png" alt="" /></figure>
@@ -247,9 +248,13 @@
             if (scrollHeight > 280) {
                 index_top.style.height = '0px'; // 當滾動超過 280 時，將高度設置為 0
                 small_expand.style.width = '296px';
+                iframe.style.top=0 + 'px';
+                iframe.style.position='fixed';
             } else {
                 index_top.style.height = 280 - scrollHeight + 'px'; // 當滾動小於等於 280 時，根據邏輯設置高度
                 small_expand.style.width = scrollHeight + 'px';
+                iframe.style.top=280 + 'px';
+                iframe.style.position='absolute';
             }
         });
 
