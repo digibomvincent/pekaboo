@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+
+    <header>
+        <iframe class="nav" src="nav.html" frameborder="0" scrolling="no"></iframe>
+    </header>
+    <div class="iframe_blank"></div>
+    <main >
+        <section class="category">
+            <h2>所有風格 / 女裝 / 夏天 </h2>
+            <ul class="styling_nav">
+                <li>篩選</li>
+                <li onclick="openUpload()">上傳領回饋!</li>
+            </ul>
+            <div>
+                <ul class="page">
+                    <h3>168</h3>
+                    <h3>ITEMS</h3>
+                    <li><a href="#">&lt;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&gt;</a></li>
+                </ul>
+            </div>
+            <div class="onestyle">
+                <h1>穿搭內容</h1>
+                <div class="br"></div>
+                <div>
+                    <div>
+                        <img src="" alt="">
+                        <div>
+                            <img src="" alt="">
+                            <img src="" alt="">
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="styling_info">
+                            <figure class="styling_head">
+                                <img src="./images/styling/m1h.svg" alt="" >
+                            </figure>
+                            <div >
+                                <div class="styling_user">
+                                    <h2>bella7777</h2>
+                                    <h2>165 <span>cm</span></h2>
+                                </div>
+                                <h2>尺寸: <span>S</span> </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+        <!-- <img src="./images/styling/m1.svg" alt=""> -->
+    </main>
+
+    <section class="category">
+        <div>
+            <ul class="page">
+                <h3>168</h3>
+                <h3>ITEMS</h3>
+                <li><a href="#">&lt;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&gt;</a></li>
+            </ul>
+        </div>
+    </section>
+    <footer>
+        <iframe class="footer" src="./footer.html" frameborder="0"></iframe>
+    </footer>
+    <script>
+        function openUpload() {
+            document.querySelector('.styling_mask').style.display = 'block';
+            document.getElementById('upload').style.display = 'block';
+        }
+
+        function closeUpload() {
+            document.querySelector('.styling_mask').style.display = 'none';
+            document.getElementById("upload").style.display = "none";
+        }
+
+    </script>
+
+</body>
+
+</html>

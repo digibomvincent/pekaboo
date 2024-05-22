@@ -11,6 +11,18 @@
     <title>PEKABOO</title>
     <link rel="icon" href="/logo.ico">
     <link rel="stylesheet" href="./style/style.css">
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/jquery.jcarousellite.min.js"></script>
+    <script>
+        $(function () {
+            $('#carousel').jCarouselLite({
+                auto: 3000, //停多久
+                speed: 2000, //移動速度
+                visible: 1,  //顯示幾張
+                scroll: 1    //每次捲動張數
+            });
+        });
+    </script>
 </head>
 
 <body onload="loadNav()">
@@ -23,6 +35,17 @@
         <div class="blank"></div>
     </header>
     <iframe class="nav" id="nav" src="nav.html" frameborder="0" scrolling="no"></iframe>
+    <div class="banner">
+        <div id="carousel">
+            <ul>
+                <li><img src="./images/banner/banner1.webp" alt="" /></li>
+                <li><img src="./images/banner/banner2.webp" alt="" /></li>
+                <li><img src="./images/banner/banner3.webp" alt="" /></li>
+                <li><img src="./images/banner/banner4.webp" alt="" /></li>
+            </ul>
+        </div>
+        <figure class="logo"><img src="./images/logo.png" alt="" /></figure>
+    </div>
     <div id="root"></div>
     <!-- react -->
     <script type="text/babel">
@@ -154,16 +177,16 @@
             )
         }
         const App = () => {
-        /*     const [showCart, setShowCart] = useState(false);
-            const toggleCart = () => {
-                setShowCart(!showCart);改為相反值 
-            };
-             Make toggleCart accessible globally
-            window.toggleCart = toggleCart; */
+            /*     const [showCart, setShowCart] = useState(false);
+                const toggleCart = () => {
+                    setShowCart(!showCart);改為相反值 
+                };
+                 Make toggleCart accessible globally
+                window.toggleCart = toggleCart; */
             return (
                 <>
                     <main id="index">
-                       {/*寫到nav裡面了 
+                        {/*寫到nav裡面了 
                          {showCart && (
                             如果 && 前面的表達式為 true，則渲染後面的內容 
                             <div className='cart_content'>
@@ -180,10 +203,6 @@
                                 <div className='cart_view'><a href="">前往購物車</a></div>
                             </div>
                         )} */}
-                        <div className="banner">
-                            <a href="#"><img className="banner1" src="./images/banner.png" alt="" /></a>
-                            <figure className="logo"><img src="./images/logo.png" alt="" /></figure>
-                        </div>
                         <section className="sale">
                             <h1 className="title_y">SALE <br />―</h1>
                         </section>
@@ -224,7 +243,6 @@
         <iframe class="footer" src="./footer.html" frameborder="0"></iframe>
     </footer>
     <!-- nav_l -->
-    <script src="./js/script.js"></script>
     <script>
         // window.onload = function () {  /* 問老師 */
         //     var iframe = document.getElementById('nav');
@@ -248,13 +266,13 @@
             if (scrollHeight > 280) {
                 index_top.style.height = '0px'; // 當滾動超過 280 時，將高度設置為 0
                 small_expand.style.width = '296px';
-                iframe.style.top=0 + 'px';
-                iframe.style.position='fixed';
+                iframe.style.top = 0 + 'px';
+                iframe.style.position = 'fixed';
             } else {
                 index_top.style.height = 280 - scrollHeight + 'px'; // 當滾動小於等於 280 時，根據邏輯設置高度
                 small_expand.style.width = scrollHeight + 'px';
-                iframe.style.top=280 + 'px';
-                iframe.style.position='absolute';
+                iframe.style.top = 280 + 'px';
+                iframe.style.position = 'absolute';
             }
         });
 
