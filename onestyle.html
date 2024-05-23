@@ -10,6 +10,7 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <title>Document</title>
     <link rel="stylesheet" href="./style/style.css">
+    <script src="./js/script.js"></script>
 </head>
 
 <body>
@@ -56,17 +57,15 @@
                         <figure class="onestyle_head">
                             <img src="./images/styling/f1.jpg" alt="">
                         </figure>
-                        <div>
-                            <div class="onestyle_user">
-                                <h2>Pinky</h2>
-                                <h2>165 <span>cm</span></h2>
-                            </div>
-                            <h2>尺寸: <span>S</span> </h2>
+                        <div class="onestyle_user">
+                            <h2>Pinky</h2>
+                            <h2>165 cm</h2>
                         </div>
                     </div>
                     <p>長版的V領拼色條紋洋裝內搭〈Healthknit〉連帽上衣，外搭尼龍狩獵背心讓整體有層次感！下身穿著〈Orslow〉8號褲，休閒十足卻不無聊～</p>
                     <div class="onestyle_like">
-                        <img src="./images/icon/like.png" alt=""><h1>收藏</h1>
+                        <img src="./images/icon/like2.png" alt="">
+                        <h1>收藏</h1>
                     </div>
                     <h1>穿搭單品</h1>
                     <div class="onestyle_tag">
@@ -90,9 +89,31 @@
                 </div>
             </div>
         </section>
+        <div class='styling_mask' onClick="closeUpload()"></div>
+        <section id='upload'>
+            <h1>穿搭分享領回饋</h1>
+            <div class='upload_content'>
+                <div class='upload_pic'>
+                    <img src="./images/icon/camera.svg" alt="" >
+                    上傳照片
+                </div>
 
+                <div>
+                    <h2>單品分類</h2>
+                    <h2>歷史訂單</h2>
+                    <h2>身高(cm)</h2>
+                </div>
 
-        <!-- <img src="./images/styling/m1.svg" alt=""> -->
+                <div>
+                    <div>站內分類搜尋 <span>&gt;</span> </div>
+                    <div>歷史訂單搜尋 <span>&gt;</span></div>
+                    <input type="number" placeholder="cm" >
+                </div>
+
+            </div>
+        </section>
+
+        
     </main>
 
     <section class="category">

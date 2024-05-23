@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style/style.css">
+    <script src="./js/photochange.js"></script>
 </head>
 
 <body>
@@ -18,41 +19,45 @@
         <section class="one_cloth">
             <h2>所有商品 / 女裝 / 上著 / 短袖T恤</h2>
             <div class="cloth_box">
-                <div class="pic_s">
-                    <figure><img src="./images/cloth/cl1-1.webp" alt=""></figure>
-                    <figure><img src="./images/cloth/cl1-2.webp" alt=""></figure>
-                    <figure><img src="./images/cloth/cl1-3.webp" alt=""></figure>
-                    <figure><img src="./images/cloth/cl1-4.webp" alt=""></figure>
-                </div>
-                <figure class="pic_l"><img src="./images/cloth/cl1.webp" alt=""></figure>
+                <form class="pic_s">
+                    <input type="radio" name="image" id="img1" value="./images/cloth/cl1.webp" checked>
+                    <label for="img1"><img src="./images/cloth/cl1.webp" alt=""></label>
+                    <input type="radio" name="image" id="img2" value="./images/cloth/cl1-2.webp">
+                    <label for="img2"><img src="./images/cloth/cl1-2.webp" alt=""></label>
+                    <input type="radio" name="image" id="img3" value="./images/cloth/cl1-3.webp">
+                    <label for="img3"><img src="./images/cloth/cl1-3.webp" alt=""></label>
+                    <input type="radio" name="image" id="img4" value="./images/cloth/cl1-4.webp">
+                    <label for="img4"><img src="./images/cloth/cl1-4.webp" alt=""></label>
+                </form>
+                <figure class="pic_l"><img id="largeImage" src="./images/cloth/cl1.webp" alt=""></figure>
                 <div>
                     <h1>日系可愛配色胸口刺繡舒適透氣上衣（100%棉）</h1>
                     <h2>NT.990</h2>
                     <div class="color_bar">
                         <div class="border_box">
-                            <input type="checkbox" value="None" id="blue" name="check" checked>
+                            <input type="radio" value="None" id="blue" name="color" checked>
                             <label class="blue" for="blue"></label>
                         </div>
                         <div class="border_box">
-                            <input type="checkbox" value="None" id="black" name="check">
+                            <input type="radio" value="None" id="black" name="color">
                             <label class="black" for="black"></label>
                         </div>
                         <div class="border_box">
-                            <input type="checkbox" value="None" id="white" name="check">
+                            <input type="radio" value="None" id="white" name="color">
                             <label class="white" for="white"></label>
                         </div>
                     </div>
                     <div class="size_bar">
                         <div class="border_box">
-                            <input type="checkbox" value="None" id="s" name="check" checked>
+                            <input type="radio" value="None" id="s" name="size" checked>
                             <label class="s" for="s">S</label>
                         </div>
                         <div class="border_box">
-                            <input type="checkbox" value="None" id="m" name="check">
+                            <input type="radio" value="None" id="m" name="size">
                             <label class="m" for="m">M</label>
                         </div>
                         <div class="border_box">
-                            <input type="checkbox" value="None" id="l" name="check">
+                            <input type="radio" value="None" id="l" name="size">
                             <label class="l" for="l">L</label>
                         </div>
                     </div>
