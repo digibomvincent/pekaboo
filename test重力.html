@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+    body {
+        margin: 0;
+        overflow: hidden; /* 防止滚动条出现 */
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: 100vh;
+        background: #f0f0f0;
+    }
+    .logo {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+    }
+</style>
+</head>
+<body>
+    <img class="logo" src="./images/logo.png" alt="Logo">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoElement = document.querySelector('.logo');
+            let posY = 0;
+            let velocity = 0;
+            const gravity = 0.5;
+            const bounce = 0.7;
+            const ground = window.innerHeight - logoElement.height;
+
+            function fall() {
+                velocity += gravity;
+                posY += velocity;
+
+                if (posY > ground) {
+                    posY = ground;
+                    velocity *= -bounce; // 反彈效果
+                }
+
+                logoElement.style.top = `${posY}px`;
+
+                requestAnimationFrame(fall);
+            }
+
+            fall();
+        });
+    </script>
+</body>
+</html>

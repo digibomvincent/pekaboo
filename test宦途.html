@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .image-display {
+            margin-bottom: 20px;
+        }
+
+        .image-display img {
+            width: 300px;
+            height: auto;
+            border: 2px solid black;
+        }
+
+        .thumbnail-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .thumbnail-form input[type="radio"] {
+            display: none;
+        }
+
+        .thumbnail-form label {
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .thumbnail-form input[type="radio"]:checked+label {
+            border: 2px solid black;
+        }
+
+        .thumbnail-form label img {
+            width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="image-display" id="imageDisplay">
+        <img id="largeImage" src="./images/cloth/cl1.webp" alt="Large Image">
+    </div>
+    <form class="thumbnail-form">
+        <input type="radio" name="image" id="img1" value="./images/cloth/cl1-1.webp" checked>
+        <label for="img1">
+            <img src="./images/cloth/cl1-1.webp" alt="Image 1">
+        </label>
+        <input type="radio" name="image" id="img2" value="./images/cloth/cl1-2.webp">
+        <label for="img2">
+            <img src="./images/cloth/cl1-2.webp" alt="Image 2">
+        </label>
+        <input type="radio" name="image" id="img3" value="./images/cloth/cl1-3.webp">
+        <label for="img3">
+            <img src="./images/cloth/cl1-3.webp" alt="Image 3">
+        </label>
+    </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const thumbnails = document.querySelectorAll('input[name="image"]');
+            const largeImage = document.getElementById('largeImage');
+
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('change', event => {
+                    largeImage.src = event.target.value;
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

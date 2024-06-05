@@ -46,6 +46,7 @@
             </ul>
         </div>
         <figure class="logo"><img src="./images/logo.png" alt="" /></figure>
+        <figure class="logo_dizzy"><img src="./images/face/face2.png" alt="" /></figure>
     </div>
     <div id="root"></div>
     <!-- react -->
@@ -264,19 +265,39 @@
             var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
             var small_expand = iframeDocument.getElementById('small_expand');
             var scrollHeight = window.scrollY; // 獲取滾動的高度
-            if (scrollHeight > 280) {
+            if (scrollHeight > 250) {
                 index_top.style.height = '0px'; // 當滾動超過 280 時，將高度設置為 0
                 small_expand.style.width = '296px';
                 iframe.style.top = 0 + 'px';
                 iframe.style.position = 'fixed';
             } else {
-                index_top.style.height = 280 - scrollHeight + 'px'; // 當滾動小於等於 280 時，根據邏輯設置高度
+                index_top.style.height = 250 - scrollHeight + 'px'; // 當滾動小於等於 280 時，根據邏輯設置高度
                 small_expand.style.width = scrollHeight + 'px';
-                iframe.style.top = 280 + 'px';
+                iframe.style.top = 250 + 'px';
                 iframe.style.position = 'absolute';
             }
         });
-        
+        document.addEventListener('DOMContentLoaded', function () {
+            const logo = document.querySelector('.logo');
+            const logo_dizzy = document.querySelector('.logo_dizzy');
+            let scrollTimeout;
+            function changeLogo() {
+                if (window.scrollY > 100) {
+                    logo.style.display = "none";
+                    logo_dizzy.style.display = "block";
+                    clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(() => {
+                        logo.style.display = "block";
+                        logo_dizzy.style.display = "none";
+                    }, 1000);
+                } else {
+                    logo.style.display = "block";
+                    logo_dizzy.style.display = "none";
+                }
+            }
+            window.addEventListener('scroll', changeLogo);
+        });
+
     </script>
 </body>
 

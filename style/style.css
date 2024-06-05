@@ -390,7 +390,7 @@ a {
 }
 
 .blank {
-    height: 280px;
+    height: 250px;
 }
 
 .small_expand {
@@ -601,8 +601,10 @@ ul.subs2 p:hover {
     margin: 0 10px;
 }
 
-#cartIcon:hover {
-    animation: high 0.5s linear infinite;
+#cartIcon:hover,
+#member:hover,
+#search:hover {
+    animation: high 0.35s linear infinite;
 }
 
 
@@ -610,12 +612,15 @@ ul.subs2 p:hover {
     0% {
         transform: rotate(0) translateX(0);
     }
+
     30% {
         transform: rotate(-7deg) translateX(-20%);
     }
+
     70% {
         transform: rotate(12deg) translateX(7%);
     }
+
     100% {
         transform: rotate(0) translateX(0);
     }
@@ -635,7 +640,15 @@ ul.subs2 p:hover {
 .logo {
     position: absolute;
     width: 200px;
-    top: 68%;
+    top: 80%;
+    left: 43%;
+    z-index: 2;
+}
+.logo_dizzy {
+    display: none;
+    position: absolute;
+    width: 200px;
+    top: 80%;
     left: 43%;
     z-index: 2;
 }
