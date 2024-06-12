@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <title>Document</title>
     <link rel="stylesheet" href="./style/style.css">
-    <script src="./js/photochange.js"></script>
+    <!-- <script src="./js/photochange.js"></script> -->
 </head>
 
 <body>
@@ -16,65 +19,148 @@
     </header>
     <div class="iframe_blank"></div>
     <main id="one_cloth">
-        <section class="one_cloth">
-            <h2>所有商品 / 女裝 / 上著 / 短袖T恤</h2>
-            <div class="cloth_box">
-                <form class="pic_s">
-                    <input type="radio" name="image" id="img1" value="./images/cloth/cl1.webp" checked>
-                    <label for="img1"><img src="./images/cloth/cl1.webp" alt=""></label>
-                    <input type="radio" name="image" id="img2" value="./images/cloth/cl1-2.webp">
-                    <label for="img2"><img src="./images/cloth/cl1-2.webp" alt=""></label>
-                    <input type="radio" name="image" id="img3" value="./images/cloth/cl1-3.webp">
-                    <label for="img3"><img src="./images/cloth/cl1-3.webp" alt=""></label>
-                    <input type="radio" name="image" id="img4" value="./images/cloth/cl1-4.webp">
-                    <label for="img4"><img src="./images/cloth/cl1-4.webp" alt=""></label>
-                </form>
-                <figure class="pic_l"><img id="largeImage" src="./images/cloth/cl1.webp" alt=""></figure>
-                <div>
-                    <h1>日系可愛配色胸口刺繡舒適透氣上衣（100%棉）</h1>
-                    <h2>NT.990</h2>
-                    <div class="color_bar">
-                        <div class="border_box">
-                            <input type="radio" value="None" id="blue" name="color" checked>
-                            <label class="blue" for="blue"></label>
-                        </div>
-                        <div class="border_box">
-                            <input type="radio" value="None" id="black" name="color">
-                            <label class="black" for="black"></label>
-                        </div>
-                        <div class="border_box">
-                            <input type="radio" value="None" id="white" name="color">
-                            <label class="white" for="white"></label>
-                        </div>
-                    </div>
-                    <div class="size_bar">
-                        <div class="border_box">
-                            <input type="radio" value="None" id="s" name="size" checked>
-                            <label class="s" for="s">S</label>
-                        </div>
-                        <div class="border_box">
-                            <input type="radio" value="None" id="m" name="size">
-                            <label class="m" for="m">M</label>
-                        </div>
-                        <div class="border_box">
-                            <input type="radio" value="None" id="l" name="size">
-                            <label class="l" for="l">L</label>
-                        </div>
-                    </div>
-                    <div class="count_bar">
-                        <button id="minus" class="btn">-</button>
-                        <span>1</span>
-                        <button id="plus" class="btn">+</button>
-                    </div>
-                    <div class="addcart_bar">
-                        <button class="btn">加入購物車</button>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- react -->
+        <div id="root"></div>
+        <script src="./js/product.js"></script>
+        <script type="text/babel">
+            const { useState } = React
+
+            const App = () => {
+                /* 讀取圖片 */
+                const url = new URL(window.location.href);
+                // 獲取查詢參數（這裡假設參數名為'id'）
+                const id = url.search.substring(1);
+                const product = products.find(product => product.id === Number(id));
+                console.log(product.name);
+                const [selectedImage, setSelectedImage] = useState(`./images/cloth/cl${id}.webp`);
+                const handleImageChange = (e) => {
+                    setSelectedImage(e.target.value);
+                };
+                /* 顏色 尺寸 */
+                const [selectedColor, setSelectedColor] = useState('blue');
+
+                const handleColorChange = (e) => {
+                    setSelectedColor(e.target.id);
+                };
+                const [selectedSize, setSelectedSize] = useState('s');
+
+                const handleSizeChange = (e) => {
+                    setSelectedSize(e.target.id);
+                };
+                /* 數量 */
+                const [count, setCount] = useState(1);
+                const handleMinusClick = () => {
+                    if (count > 1) setCount(count - 1);
+                };
+
+                const handlePlusClick = () => {
+                    setCount(count + 1);
+                };
+
+                return (
+                    <>
+                        <section className="one_cloth">
+                            <h2>所有商品 / 女裝 / 上著 / 短袖T恤</h2>
+                            <div className="cloth_box">
+                                <form className="pic_s">
+                                    <input type="radio" name="image" id="img1" value={`./images/cloth/cl${id}.webp`} checked={selectedImage === `./images/cloth/cl${id}.webp`} onChange={handleImageChange} />
+                                    <label htmlFor="img1"><img src={`./images/cloth/cl${id}.webp`} alt="" /></label>
+
+                                    <input type="radio" name="image" id="img2" value={`./images/cloth/cl${id}-1.webp`} checked={selectedImage === `./images/cloth/cl${id}-1.webp`} onChange={handleImageChange} />
+                                    <label htmlFor="img2"><img src={`./images/cloth/cl${id}-1.webp`} alt="" /></label>
+
+                                    <input type="radio" name="image" id="img3" value="./images/cloth/cl1-3.webp" checked={selectedImage === "./images/cloth/cl1-3.webp"} onChange={handleImageChange} />
+                                    <label htmlFor="img3"><img src="./images/cloth/cl1-3.webp" alt="" /></label>
+
+                                    <input type="radio" name="image" id="img4" value="./images/cloth/cl1-4.webp" checked={selectedImage === "./images/cloth/cl1-4.webp"} onChange={handleImageChange} />
+                                    <label htmlFor="img4"><img src="./images/cloth/cl1-4.webp" alt="" /></label>
+                                </form>
+
+                                <figure className="pic_l"><img id="largeImage" src={selectedImage} alt="" /></figure>
+
+                                <div>
+                                    <h1>{product.name}</h1>
+                                    <h2>NT.{product.price}</h2>
+
+                                    <form className="color_bar">
+                                        <div className="border_box">
+                                            <input
+                                                type="radio"
+                                                value="None"
+                                                id="blue"
+                                                name="color"
+                                                checked={selectedColor === 'blue'}
+                                                onChange={handleColorChange}
+                                            />
+                                            <label className="blue" htmlFor="blue"></label>
+                                        </div>
+                                        <div className="border_box">
+                                            <input
+                                                type="radio"
+                                                value="None"
+                                                id="black"
+                                                name="color"
+                                                checked={selectedColor === 'black'}
+                                                onChange={handleColorChange}
+                                            />
+                                            <label className="black" htmlFor="black"></label>
+                                        </div>
+                                        <div className="border_box">
+                                            <input
+                                                type="radio"
+                                                value="None"
+                                                id="white"
+                                                name="color"
+                                                checked={selectedColor === 'white'}
+                                                onChange={handleColorChange}
+                                            />
+                                            <label className="white" htmlFor="white"></label>
+                                        </div>
+                                    </form>
+
+                                    <form className="size_bar">
+                                        <div className="border_box">
+                                            <input type="radio" value="None" id="s" name="size"
+                                                checked={selectedSize === 's'}
+                                                onChange={handleSizeChange} />
+                                            <label className="s" htmlFor="s">S</label>
+                                        </div>
+                                        <div className="border_box">
+                                            <input type="radio" value="None" id="m" name="size"
+                                                checked={selectedSize === 'm'}
+                                                onChange={handleSizeChange} />
+                                            <label className="m" htmlFor="m">M</label>
+                                        </div>
+                                        <div className="border_box">
+                                            <input type="radio" value="None" id="l" name="size"
+                                                checked={selectedSize === 'l'}
+                                                onChange={handleSizeChange} />
+                                            <label className="l" htmlFor="l">L</label>
+                                        </div>
+                                    </form>
+
+                                    <div className="count_bar">
+                                        <button id="minus" className="btn" onClick={handleMinusClick}>-</button>
+                                        <span>{count}</span>
+                                        <button id="plus" className="btn" onClick={handlePlusClick}>+</button>
+                                    </div>
+
+                                    <div className="addcart_bar">
+                                        <button className="btn">加入購物車</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </>
+                )
+            }
+            ReactDOM.createRoot(document.getElementById('root')).render(
+                <App />);
+        </script>
         <section class="cloth_detail">
             <div class="logo_track">
-                <img class="logo_roll" src="./images/logo.png" alt="">
+                <div class="logo_roll"></div>
+                <!-- <img class="logo_roll" src="./images/logo.png" alt=""> -->
             </div>
             <div class="tabs">
                 <button class="tab active" onclick="openTab('tab1')">商品資訊</button>
@@ -82,102 +168,140 @@
             </div>
 
             <div id="tab1" class="content active">
-                <p>顏色Color | <br>
-                    Chocolate / Black <br>
-                     <br>
-                    商品描述 DESCRIPTION |  <br>
-                    合身版型 / 喇叭袖設計 <br>
-                     <br>
-                    實穿分享 SHARING |  <br>
-                    #RETEM03週年系列 <br>
-                    版型設定長版合身 <br>
-                    選用親膚針織面料 <br>
-                     <br>
-                    袖口設定微開扇喇叭袖 <br>
-                    能讓手部線條看起來更加纖細 <br>
-                    前身釦子配置到近腰頭處 <br>
-                    創造出上身短、下身長的視覺效果 <br>
-                    同時修飾腰臀比例 <br>
-                    整體達到極佳的修身效果！ <br>
-                    特別推薦搭配V-Neck Knitted Vest 疊搭出豐富層次感 <br>
-                     <br>
-                     <br>
-                     <br>
-                    材質 MATERIAL | <br>
-                    50% Viscose <br>
-                    30% Polyester <br>
-                    20% Nylon <br>
-                     <br>
-                    -由於品類與製程特殊，因此尺寸數據會有±3cm的範圍 <br>
-                    -針織商品長時間吊掛可能造成變形，請摺疊平放收納 <br>
-                    -請參照洗標建議方式清洗，於陰涼處平鋪晾乾 <br>
-                    -如需整燙，請以攝氏 110 度以下低溫，隔布熨燙 <br>
-                     <br>
-                    預計5個工作天內寄出，延遲將另行通知 <br>
-                    下單前請務必確認尺寸數據 <br>
-                    Queen 身高 160cm / 46kg 著用S</p>
+                旬のビッグシルエットロックTが登場。<br>
+                何枚も欲しくなるインパクトのあるプリントが魅力。<br>
+                <br>
+                あえてかすれたピグメント加工を施し、ヴィンテージムードたっぷりに仕上げたTシャツ。<br>
+                インパクトのあるプリントが魅力的でコーデに映える1枚です！<br>
+                ゆったりとした着心地で、程よいルーズ感のあるシルエット。<br>
+                前後2WAY仕様なので着こなしの幅が広がるのも嬉しいポイント！ <br>
+                気分や着こなしに合わせてアレンジが可能です。 <br>
+                <br>
+                ■point <br>
+                ・古着感のある風合い <br>
+                ・オーバーサイズ <br>
+                ・ピグメント加工 <br>
+                ・JaVaコラボ <br>
+                <br>
+                ■detail <br>
+                古着のロックTからインスパイアしたロゴプリントTシャツ。 <br>
+                アイテム全体にピグメント加工を施し、古着のようなヴィンテージっぽさを演出。 <br>
+                きれいめに仕上げた絶妙なダメージ感がこだわりの1枚です。 <br>
+                落ち感のあるオーバーシルエットで、インでもアウトでも着やすく <br>
+                体のラインも拾いにくいのでノーストレスで着用いただけます。 <br>
+                柄がアソートなので好きな柄や色味で選べるのも楽しみの一つ。 <br>
+                一点投入で大人アメカジスタイルが即完成するマストハブなアイテムです。 <br>
+                <br>
+                ■fabric <br>
+                ピグメント加工を施した綿100％天竺素材。 <br>
+                …………………… <br>
+                透け感：なし <br>
+                厚さ：普通 <br>
+                伸縮性：あり <br>
+                裏地：なし <br>
+                ポケット：なし <br>
+                洗濯方法：洗濯機可(ネット使用) <br>
+                …………………… <br>
+                ※詳しいお手入れ方法は商品タグをご参照ください。 <br>
+
+
             </div>
 
             <div id="tab2" class="content">
-                <p>S M L</p>
+                <table class="cloth_size">
+                    <tr>
+                        <th>サイズ</th>
+                        <th>身幅</th>
+                        <th>着丈</th>
+                        <th>そで丈</th>
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td>66</td>
+                        <td>58</td>
+                        <td>19</td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td>68</td>
+                        <td>60</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>70</td>
+                        <td>62</td>
+                        <td>23</td>
+                    </tr>
+                    <tr>
+                        <td>XL</td>
+                        <td>72</td>
+                        <td>67</td>
+                        <td>28</td>
+                    </tr>
+                </table>
+                <br>
+                ■coordinate <br>
+                イン・アウトで着られるオーバーサイズの半袖Tシャツは、 <br>
+                春から夏にかけてのカジュアルコーデで重宝する一枚。 <br>
+                メンズライクなビッグシルエットがポイントなので、タイトなパンツを合わせたり、 <br>
+                ベルトでウエストマークするコーディネートもおすすめ。 <br>
+                フェミニンなチュールスカートやティアードスカートなどとの <br>
+                カジュアルすぎないMIX感のあるコーディネートにも活躍。 <br>
+                ルーズなデニムパンツやワイドカーゴパンツなどと合わせたストリートスタイルや <br>
+                きれいめなストレートパンツなどと合わせたスタイルもおすすめ。 <br>
+                1枚ではもちろん、フリルビスチェやチュールアイテムなどの甘めアイテムと合わせれば <br>
+                トレンド感たっぷりのカジュアルスタイルに。 <br>
+                合わせるアイテムを選ばず幅広く着回し可能でロングシーズン重宝する万能アイテムです◎ <br>
+                <br>
+                【Java Brand Story】 <br>
+                ～Enjoy the moment～ <br>
+                Java/ジャバはインドネシアのジャワ島の海の美しさにインスパイアされ誕生したフットウェアブランドです。 <br>
+                スポーツ、アドベンチャー、アウトドア、フェス、タウンユースなど <br>
+                あらゆるシーンを想定し、歩きやすさ、快適さにこだわった機能性と <br>
+                高いファッション性が特徴。年齢や性別を超えたユニバーサルデザインも魅力のひとつです。 <br>
+                手つかずの大自然や海を愛し、人生のアドベンチャーを楽しむすべての人に。 <br>
             </div>
         </section>
-        <!-- tab script-->
-        <script>
-            function openTab(tabId) {
-                // 隱藏所有內容
-                var contents = document.querySelectorAll('.content');
-                contents.forEach(function (content) {
-                    content.classList.remove('active');
-                });
-    
-                // 隱藏所有標籤
-                var tabs = document.querySelectorAll('.tab');
-                tabs.forEach(function (tab) {
-                    tab.classList.remove('active');
-                });
-    
-                // 顯示指定內容
-                var tabContent = document.getElementById(tabId);
-                tabContent.classList.add('active');
-    
-                // 標記對應的顯示狀態
-                var activeTab = document.querySelector('[onclick="openTab(\'' + tabId + '\')"]');
-                activeTab.classList.add('active');
 
-                if(tabId==='tab2'){
-                    document.querySelector('.logo_roll').style.transform = 'translateX(232.5px) rotate(360deg)';
-                }else{
-                    document.querySelector('.logo_roll').style.transform = 'translateX(-232.5px) rotate(-360deg)';
-                }
-            }
-        </script>
-        <!-- tab script end-->
     </main>
     <footer>
-        <div class="footer_top">
-            <figure class="text_y"><img src="./images/text_y.png" alt=""></figure>
-            <div class="contact">
-                <a href="#"><img src="./images/icon/Line.png" alt=""></a>
-                <a href="#"><img src="./images/icon/Instagram.png" alt=""></a>
-                <a href="#"><img src="./images/icon/Facebook.png" alt=""></a>
-                <small>TEL：03-5333-0802
-                    <br>MAIL：okayama-accent-tshirt@gmail.com
-                </small>
-            </div>
-        </div>
-        <div class="footer_buttom">
-            <ul class="nav_buttom">
-                <li><a href="#">首頁</a></li>
-                <li><a href="#">限時特賣</a></li>
-                <li><a href="#">所有商品</a></li>
-                <li><a href="#">會員中心</a></li>
-                <li><a href="#">購物車</a></li>
-                <small>Copyright &copy; 2024 PEKABOO All Rights Reserved.</small>
-            </ul>
-        </div>
-
+        <iframe class="footer" src="./footer.html" frameborder="0"></iframe>
     </footer>
+    <!-- tab script-->
+    <script>
+        function openTab(tabId) {
+            // 隱藏所有內容
+            var contents = document.querySelectorAll('.content');
+            contents.forEach(function (content) {
+                content.classList.remove('active');
+            });
+
+            // 隱藏所有標籤
+            var tabs = document.querySelectorAll('.tab');
+            tabs.forEach(function (tab) {
+                tab.classList.remove('active');
+            });
+
+            // 顯示指定內容
+            var tabContent = document.getElementById(tabId);
+            tabContent.classList.add('active');
+
+            // 標記對應的顯示狀態
+            var activeTab = document.querySelector('[onclick="openTab(\'' + tabId + '\')"]');
+            activeTab.classList.add('active');
+
+            if (tabId === 'tab2') {
+                document.querySelector('.logo_roll').classList.remove('LRolling');
+                document.querySelector('.logo_roll').classList.add('RRolling');
+            } else {
+                document.querySelector('.logo_roll').classList.remove('RRolling');
+                document.querySelector('.logo_roll').classList.add('LRolling');
+            }
+        }
+    </script>
+    <!-- tab script end-->
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
