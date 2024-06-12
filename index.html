@@ -57,7 +57,7 @@
     <script type="text/babel">
         const { useState } = React
         const Card = (props) => {
-            const { name, id, tag, price } = props
+            const { name, id, tag, price, handleNum} = props
 
             return (
                 <article className="product" >
@@ -71,11 +71,34 @@
                         <h2>NT.</h2>
                         <h3>{price}</h3>
                     </div>
-                    <button className="addcart"><img src="./images/icon/addcart.png" alt="" /></button>
+                    <button className="addcart"
+                        onClick={() => handleNum(id)}
+                    ><img src="./images/icon/addcart.png" alt="" /></button>
                 </article>
             )
         }
         const App = () => {
+            const [num, setNum] = useState(0);
+            const handleNum = (id) => {
+                setNum(num + 1)
+                let cart = localStorage.getItem('cart');
+                if (!cart) {
+                    cart = [];
+                } else {
+                    cart = JSON.parse(cart);
+                }
+                let add = cart.find(k => k.id === id);
+                if (add) {
+                    // 如果商品已經在購物車中，增加數量
+                    add.qty += 1;
+                } else {
+                    // 如果商品不在購物車中，新增商品
+                    add = products.find(k => k.id === id);
+                    add.qty = 1;
+                    cart.push(add);
+                };
+                window.localStorage.setItem('cart', JSON.stringify(cart));
+            };
             return (
                 <>
                     <main id="index">
@@ -85,7 +108,7 @@
                         <section className='sale_content'>
                             {
                                 products.slice(0, 8).map((p) => {
-                                    return <Card name={p.name} id={p.id} tag={p.tag} price={p.price} key={p.id}></Card>
+                                    return <Card name={p.name} id={p.id} tag={p.tag} price={p.price} key={p.id} handleNum={handleNum}></Card>
                                 })
                             }
                         </section>
@@ -98,7 +121,7 @@
                         <section className='sale_content'>
                             {
                                 products.slice(8, 13).map((p) => {
-                                    return <Card name={p.name} id={p.id} tag={p.tag} price={p.price} key={p.id}></Card>
+                                    return <Card name={p.name} id={p.id} tag={p.tag} price={p.price} key={p.id} handleNum={handleNum}></Card>
                                 })
                             }
                         </section>

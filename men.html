@@ -95,12 +95,12 @@
             let productF
             if (subcategory === null) {
                 if (category === null){
-                    productF = products.filter(k => k.sex === "女");
+                    productF = products.filter(k => k.sex === "男");
                 }else{
-                    productF = products.filter(k => k.sex === "女" && k.top_down === category);
+                    productF = products.filter(k => k.sex === "男" && k.top_down === category);
                 }
             }else{
-                productF = products.filter(k => k.sex === "女" && k.top_down === category && k.tag === subcategory);
+                productF = products.filter(k => k.sex === "男" && k.top_down === category && k.tag === subcategory);
             }
             
             const handleSortChange = (event) => {
