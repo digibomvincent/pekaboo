@@ -131,29 +131,28 @@
         function loadNav() {
             var iframe = document.getElementById('nav');
             iframe.addEventListener('load', () => {
-                // 向iframe发送消息，通知它要添加shrink类
+                // 向iframe發送添加shrink
                 iframe.contentWindow.postMessage({ type: 'addClass', id: 'small_expand', class: 'shrink' }, '*');
             });
         }
-       
+
         window.addEventListener('scroll', function () {
             var index_top = document.getElementById('index_top');
             var iframe = document.getElementById('nav');
-            var scrollHeight = window.scrollY; // 获取滚动的高度
+            var scrollHeight = window.scrollY; // 滾動的高度
 
             if (scrollHeight > 250) {
                 index_top.style.height = '0px';
                 iframe.style.top = '0px';
                 iframe.style.position = 'fixed';
 
-                // 发送消息给iframe，调整small_expand的宽度
+                // 發送给iframe，調整small_expand的寬度
                 iframe.contentWindow.postMessage({ type: 'updateStyle', id: 'small_expand', style: { width: '200px' } }, '*');
             } else {
                 index_top.style.height = 250 - scrollHeight + 'px';
                 iframe.style.top = '250px';
                 iframe.style.position = 'absolute';
 
-                // 发送消息给iframe，调整small_expand的宽度
                 iframe.contentWindow.postMessage({ type: 'updateStyle', id: 'small_expand', style: { width: scrollHeight + 'px' } }, '*');
             }
         });

@@ -44,8 +44,9 @@
             <h1>穿搭內容</h1>
             <div class="br"></div>
             <div class="onestyle_box">
-                <div >
-                    <figure class="onestyle_pic1"><img id="largeImage" src="./images/styling/style1.jpg" alt=""></figure>
+                <div>
+                    <figure class="onestyle_pic1"><img id="largeImage" src="./images/styling/style1.jpg" alt="">
+                    </figure>
                     <form class="pic_s onestyle_pic2">
                         <input type="radio" name="image" id="img1" value="./images/styling/style1.jpg" checked>
                         <label for="img1"><img src="./images/styling/style1.jpg" alt=""></label>
@@ -68,14 +69,14 @@
                         </div>
                     </div>
                     <p>長版的V領拼色條紋洋裝內搭〈Healthknit〉連帽上衣，外搭尼龍狩獵背心讓整體有層次感！下身穿著〈Orslow〉8號褲，休閒十足卻不無聊～</p>
-                    <div class="onestyle_like">
-                        <img src="./images/icon/like2.png" alt="">
-                        <h1>收藏</h1>
+                    <div id="onestyle_like" class="onestyle_like ">
+                        <img class="onestyle_weed" src="./images/icon/like2.png" alt="">
+                        <h1 class="onestyle_liketx">收藏</h1>
                     </div>
                     <h1>穿搭單品</h1>
                     <div class="onestyle_tag">
                         <div class='box'>
-                            <img src="./images/cloth/cl1.webp" alt="" />
+                            <img src="./images/cloth/cl6-1.webp" alt="" />
                             <div>
                                 <h2>日系可愛配色胸口刺繡舒適透氣上衣</h2>
                                 <h2>尺寸:S</h2>
@@ -83,7 +84,7 @@
                             </div>
                         </div>
                         <div class='box'>
-                            <img src="./images/cloth/cl1.webp" alt="" />
+                            <img src="./images/cloth/cl11-1.webp" alt="" />
                             <div>
                                 <h2>日系可愛配色胸口刺繡舒適透氣上衣</h2>
                                 <h2>尺寸:S</h2>
@@ -127,7 +128,7 @@
                 <h3>168</h3>
                 <h3>ITEMS</h3>
                 <li><a href="#">&lt;</a></li>
-                <li><a href="#">1</a></li>
+                <li ><a href="#">1</a></li>
                 <li><a href="#">2</a></li>
                 <li><a href="#">3</a></li>
                 <li><a href="#">4</a></li>
@@ -149,6 +150,23 @@
             document.querySelector('.styling_mask').style.display = 'none';
             document.getElementById("upload").style.display = "none";
         }
+
+    </script>
+    <script>
+        const like = document.querySelector('.onestyle_like');
+        const weed = document.querySelector('.onestyle_weed');
+        const txt = document.querySelector('.onestyle_liketx')
+        like.addEventListener('click', function (event) {
+            if (weed.src.includes("like2.png")) {
+                weed.src = "./images/icon/logo-01-weed.svg";
+                txt.textContent="已收藏";
+                like.classList.add("like_border");
+            } else {
+                weed.src = "./images/icon/like2.png"
+                txt.textContent="收藏";
+                like.classList.remove("like_border");
+            }
+        });
 
     </script>
     <script src="./js/photochange.js"></script>

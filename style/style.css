@@ -416,6 +416,8 @@ a {
     display: none;
 }
 
+/* bg */
+
 .bg_box {
     position: absolute;
     left: 50px;
@@ -428,6 +430,12 @@ a {
     background-size: 50%;
     height: 1800px;
     width: 100vw;
+}
+
+/* page */
+.page li:nth-child(4) {
+    background: var(--green);
+    color: var(--bg);
 }
 
 /* nav */
@@ -1678,6 +1686,16 @@ nav img {
     justify-content: center;
     align-items: center;
     margin: 50px auto;
+    transition: all 0.35s;
+}
+
+#onestyle_like:hover {
+    background: var(--yellow);
+    border-color: var(--green);
+}
+
+.like_border {
+    border-color: var(--green);
 }
 
 .onestyle_like img {

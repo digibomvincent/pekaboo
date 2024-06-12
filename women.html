@@ -45,6 +45,18 @@
                 </article>
             )
         }
+        const Filter = ({ handleSortChange }) => {
+            return (
+                <form action="">
+                    <select name="" className="filter" onChange={handleSortChange}>
+                        <option value="最新商品">最新商品</option>
+                        <option value="價格由低到高">價格由低到高</option>
+                        <option value="價格由高到低">價格由高到低</option>
+                        <option value="熱門商品">熱門商品</option>
+                    </select>
+                </form>
+            )
+        }
         const App = () => {
             const [isHovered, setIsHovered] = useState(false);
             const [num, setNum] = useState(0);
@@ -129,15 +141,15 @@
                                     <li><a href="#">5</a></li>
                                     <li><a href="#">&gt;</a></li>
                                 </ul>
-                                <form action="">
-                                    {/* 下拉選單 comcobox */}
+                                {/*   <form action="">
                                     <select name="" className="filter" onChange={handleSortChange}>
                                         <option value="最新商品">最新商品</option>
                                         <option value="價格由低到高">價格由低到高</option>
                                         <option value="價格由高到低">價格由高到低</option>
                                         <option value="熱門商品">熱門商品</option>
                                     </select>
-                                </form>
+                                </form> */}
+                                <Filter handleSortChange={handleSortChange}></Filter>
                             </div>
 
                         </section>
@@ -164,15 +176,7 @@
                                     <li><a href="#">5</a></li>
                                     <li><a href="#">&gt;</a></li>
                                 </ul>
-                                <form action="">
-                                    {/* 下拉選單 comcobox */}
-                                    <select name="" className="filter">
-                                        <option value="價格由低到高">價格由低到高</option>
-                                        <option value="價格由高到低">價格由高到低</option>
-                                        <option value="熱門商品">熱門商品</option>
-                                        <option value="最新商品">最新商品</option>
-                                    </select>
-                                </form>
+                                <Filter ></Filter>
                             </div>
                         </section>
                     </main>
