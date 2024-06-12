@@ -423,13 +423,14 @@ a {
     left: 50px;
     top: 800px;
     z-index: -1;
+    width: calc(100% - 60px)
+
 }
 
 .bg {
     background: url(../images/bg.svg);
     background-size: 50%;
     height: 1800px;
-    width: 100vw;
 }
 
 /* page */
