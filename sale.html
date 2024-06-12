@@ -86,23 +86,8 @@
                 };
                 window.localStorage.setItem('cart', JSON.stringify(cart));
             };
-            /* const productF = products.filter(k => k.sex === "女"); */
-            const url = new URL(window.location.href);
-            //讀取來源
-            const params = new URLSearchParams(url.search);
-            const category = params.get('category');
-            const subcategory = params.get('subcategory');
-            let productF
-            if (subcategory === null) {
-                if (category === null){
-                    productF = products.filter(k => k.sex === "女");
-                }else{
-                    productF = products.filter(k => k.sex === "女" && k.top_down === category);
-                }
-            }else{
-                productF = products.filter(k => k.sex === "女" && k.top_down === category && k.tag === subcategory);
-            }
-            
+            const productF = products.filter(k => k.price < 1900);
+
             const handleSortChange = (event) => {
                 const value = event.target.value;
                 setSortOption(value);
@@ -142,8 +127,8 @@
                         </div>
 
                         <section className="category">
-                            <h2>所有商品 / 女裝 / {category && `${category} /`}{subcategory && `${subcategory} /`}</h2>
-                            <h1>{subcategory}</h1>
+                            <h2>所有商品 / 限時特賣 / </h2>
+                            <h1></h1>
                             <div>
                                 <ul className="page">
                                     <h3>379</h3>
