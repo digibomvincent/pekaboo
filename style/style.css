@@ -187,8 +187,8 @@ a {
 .face2_box {
     position: fixed;
     z-index: 3;
-    right: 300px;
-    top: 10px;
+    right: 200px;
+    top: 0;
 }
 
 .face2_box {
