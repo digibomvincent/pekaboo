@@ -57,7 +57,7 @@
     <script type="text/babel">
         const { useState } = React
         const Card = (props) => {
-            const { name, id, tag, price, handleNum} = props
+            const { name, id, tag, price, handleNum } = props
 
             return (
                 <article className="product" >
@@ -151,10 +151,10 @@
         //     var small_expand = iframeDocument.getElementById('small_expand');
         //     small_expand.classList.add('shrink');
         // }
-        function loadNav() {
+        //本機端修正嘗試
+        /* function loadNav() {
             var iframe = document.getElementById('nav');
             iframe.addEventListener('load', () => {
-                // 向iframe發送添加shrink
                 iframe.contentWindow.postMessage({ type: 'addClass', id: 'small_expand', class: 'shrink' }, '*');
             });
         }
@@ -186,8 +186,8 @@
                 return;
             }
             console.log('Received message from iframe:', event.data);
-        });
-        /* function loadNav() {
+        }); */
+        function loadNav() {
             var iframe = document.getElementById('nav');
             var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
             var small_expand = iframeDocument.getElementById('small_expand');
@@ -211,7 +211,7 @@
                 iframe.style.top = 250 + 'px';
                 iframe.style.position = 'absolute';
             }
-        }); */
+        });
         document.addEventListener('DOMContentLoaded', function () {
             const logo = document.querySelector('.logo');
             const logo_dizzy = document.querySelector('.logo_dizzy');
