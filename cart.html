@@ -70,10 +70,10 @@
                     <td data-cell="商品資料" colspan="2">
                         <div class="cart_div">
                             <div class="cart_div_img">
-                                <img src="./images/cloth/cl1-1.webp" alt="product">
+                                <img id="paid_cloth1" src="./images/cloth/cl1-1.webp" alt="product">
                             </div>
                             <div class="cart_div_text">
-                                <p>日系可愛配色胸口刺繡舒適透氣上衣</p>
+                                <p class="paid_name1">日系可愛配色胸口刺繡舒適透氣上衣</p>
                                 <p>BLACK</p>
                                 <p>S</p>
                             </div>
@@ -83,92 +83,40 @@
 
                     <td class="text-center" data-cell="數量">
                         <div class="count">
-                            <button onclick="decrement(quantityInput1)">-</button>
+                            <button onclick="decrement(qty1)">-</button>
                             <input type="text" id="quantity1" value="1">
-                            <button onclick="increment(quantityInput1)">+</button>
+                            <button onclick="increment(qty1)">+</button>
                         </div>
                     </td>
 
-                    <td id="subtotal1" class="text-center" data-cell="小計">NT.1980</td>
+                    <td id="subtotal1" class="text-center" data-cell="小計">NT.198</td>
                     <td class="x" data-cell="小計"><img class="del" src="./images/icon/x.svg" alt="delete"></td>
                 </tr>
                 <tr>
                     <td data-cell="商品資料" colspan="2">
                         <div class="cart_div">
                             <div class="cart_div_img">
-                                <img src="./images/cloth/cl1.webp" alt="product">
+                                <img id="paid_cloth2" src="./images/cloth/cl1.webp" alt="product">
                             </div>
                             <div class="cart_div_text">
-                                <p>日系可愛配色胸口刺繡舒適透氣上衣</p>
+                                <p class="paid_name2">日系可愛配色胸口刺繡舒適透氣上衣</p>
                                 <p>BLUE</p>
                                 <p>S</p>
                             </div>
                         </div>
                     </td>
-                    <td class="text-center">NT.990</td>
+                    <td id="unitPrice2" class="text-center">NT.990</td>
                     <td class="text-center" data-cell="數量">
                         <div class="count">
-                            <button onclick="decrement(quantityInput2)">-</button>
+                            <button onclick="decrement(qty2)">-</button>
                             <input type="text" id="quantity2" value="1">
-                            <button onclick="increment(quantityInput2)">+</button>
+                            <button onclick="increment(qty2)">+</button>
                         </div>
                     </td>
-                    <td id="subtotal2" class="text-center" data-cell="小計">NT.990</td>
+                    <td id="subtotal2" class="text-center" data-cell="小計">NT.99</td>
                     <td class="x"><img class="del" src="./images/icon/x.svg" alt="delete"></td>
                 </tr>
             </table>
-            <div class="cart_table--sm">
-                <div class="item ">
-                    <div class="item_div">
-                        <span><img src="./images/cloth/cl1-1.webp" alt="product"></span>
-                        <div class="item_div_text">
-                            <div class="item_div_text_div">
-                                <p>日系可愛配色胸口刺繡舒適透氣上衣</p>
-                                <p>BLACK</p>
-                                <p>S</p>
-                            </div>
-
-                        </div>
-                        <span class="del"><img class="delete" src="./images/icon/x.svg" alt="delete"></span>
-                    </div>
-                    <div class="item_price">
-                        <p>NT.990</p>
-                    </div>
-                    <div class="item_total">
-                        <div class="count">
-                            <button onclick="decrement(quantityInput3)">-</button>
-                            <input type="text" id="quantity3" value="1">
-                            <button onclick="increment(quantityInput3)">+</button>
-                        </div>
-                        <div class="item_total_price">NT.1980</div>
-                    </div>
-                </div>
-                <div class="item ">
-                    <div class="item_div">
-                        <span><img src="./images/cloth/cl1.webp" alt="product"></span>
-                        <div class="item_div_text">
-                            <div class="item_div_text_div">
-                                <p>日系可愛配色胸口刺繡舒適透氣上衣</p>
-                                <p>BLUE</p>
-                                <p>S</p>
-                            </div>
-
-                        </div>
-                        <span class="del"><img class="delete" src="./images/icon/x.svg" alt="delete"></span>
-                    </div>
-                    <div class="item_price">
-                        <p>NT.990</p>
-                    </div>
-                    <div class="item_total">
-                        <div class="count">
-                            <button onclick="decrement(quantityInput4)">-</button>
-                            <input type="text" id="quantity4" value="1">
-                            <button onclick="increment(quantityInput4)">+</button>
-                        </div>
-                        <div class="item_total_price">NT.990</div>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="cart_method" style="display: flex;">
 
@@ -244,7 +192,7 @@
                     </tr>
                     <tr class="line">
                         <td>小計:</td>
-                        <td class="text-end">NT.2970</td>
+                        <td id="total_all" class="text-end">NT.2970</td>
                     </tr>
                     <tr>
                         <td>運費:</td>
@@ -253,7 +201,7 @@
                     <tr class="line">
                         <td>合計:</td>
 
-                        <td class="text-end">NT.3030</td>
+                        <td id="total_all60" class="text-end">NT.3030</td>
                     </tr>
                     <tr class="line text-center">
                         <td colspan="2"><button type="button"><a href="customer.html">前往結帳</a></button></td>
@@ -267,20 +215,87 @@
         <iframe class="footer" src="footer.html" frameborder="0" scrolling="no"></iframe>
     </footer>
     <script>
-        var quantityInput1 = document.getElementById('quantity1');
-        var quantityInput2 = document.getElementById('quantity2');
-        var quantityInput3 = document.getElementById('quantity3');
-        var quantityInput4 = document.getElementById('quantity4');
+        const name1 = document.querySelector('.paid_name1');
+        const qty1 = document.getElementById('quantity1');
+        const price1 = document.getElementById('unitPrice1');
+        const img1 = document.getElementById('paid_cloth1');
+        const subtotal1 = document.getElementById('subtotal1');
+        const name2 = document.querySelector('.paid_name2');
+        const qty2 = document.getElementById('quantity2');
+        const price2 = document.getElementById('unitPrice2');
+        const img2 = document.getElementById('paid_cloth2');
+        const subtotal2 = document.getElementById('subtotal2');
+        const total_all = document.getElementById('total_all');
+        const total_all60 = document.getElementById('total_all60');
+        var cart = JSON.parse(window.localStorage.getItem('cart')) || [];
+        function updateCart() {
+            /* var totalQty = 0; */
+            console.log(cart.length);
+            if (cart.length === 0) {
+                /* cart_num.style.display = "none";
+                total.textContent = "目前沒有商品" */
+            } else {
+                /*  cart.forEach(function (item) {
+                     totalQty += item.qty;
+                 });
+                 cart_num.textContent = totalQty;
+                 cart_num.style.display = "block";
+                 total.textContent = `共有商品(${totalQty})`; */
+                /* box[0].style.display = "flex"; */
+                const cart1 = cart[0];
+                name1.textContent = cart1.name;
+                qty1.value = cart1.qty;
+                price1.textContent = `NT.${cart1.price}`;
+                img1.src = `./images/cloth/cl${cart1.id}.webp`;
+                const total1 = qty1.value * cart1.price;
+                subtotal1.textContent = `NT.${total1}`;
+
+                if (cart.length > 1) {
+                    /* box[1].style.display = "flex"; */
+                    const cart2 = cart[1];
+                    name2.textContent = cart2.name;
+                    qty2.value = cart2.qty;
+                    price2.textContent = `NT.${cart2.price}`;
+                    img2.src = `./images/cloth/cl${cart2.id}.webp`;
+                    const total2 = qty2.value * cart2.price
+                    subtotal2.textContent = `NT.${total2}`;
+                    total_all.textContent = `NT.${total1 + total2}`;
+                    total_all60.textContent = `NT.${total1 + total2 + 60}`;
+                }
+                if (cart.length > 2) {
+                    /* cart_more.style.display = "block"; */
+                }
+            }
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            updateCart();
+        })
         function decrement(input) {
+            const cart1 = cart[0];
+            const cart2 = cart[1];
             var currentValue = parseInt(input.value);
             if (currentValue > 1) {
                 input.value = currentValue - 1;
             }
+            const total1 = qty1.value * cart1.price;
+            subtotal1.textContent = `NT.${total1}`;
+            const total2 = qty2.value * cart2.price
+            subtotal2.textContent = `NT.${total2}`;
+            total_all.textContent = `NT.${total1 + total2}`;
+            total_all60.textContent = `NT.${total1 + total2 + 60}`;
         }
 
         function increment(input) {
+            const cart1 = cart[0];
+            const cart2 = cart[1];
             var currentValue = parseInt(input.value);
             input.value = currentValue + 1;
+            const total1 = qty1.value * cart1.price;
+            subtotal1.textContent = `NT.${total1}`;
+            const total2 = qty2.value * cart2.price
+            subtotal2.textContent = `NT.${total2}`;
+            total_all.textContent = `NT.${total1 + total2}`;
+            total_all60.textContent = `NT.${total1 + total2 + 60}`;
         }
         //刪除
         let _del = document.querySelectorAll('.del');

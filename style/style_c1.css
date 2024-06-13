@@ -801,6 +801,11 @@ hr {
     display: none;
 }
 /* 購物車小網 */
+#paid_cloth1,
+#paid_cloth2{
+    width: 100px;
+    height: 140px;
+}
 .cart_table--sm{
     display:flex;
     flex-direction: column;
