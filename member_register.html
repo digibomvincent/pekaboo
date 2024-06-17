@@ -7,12 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員</title>
     <link rel="stylesheet" href="./style/style_m.css">
+    <script src="./js/script.js"></script>
+    <style>
+        .nav {
+            width: 100%;
+            height: 60px;
+            /* iframe有預設高*/
+            position: fixed;
+            z-index: 3;
+        }
+
+        .iframe_blank {
+            height: 60px;
+        }
+    </style>
 </head>
 
 <body>
-    <header>
+  
         <iframe class="nav" src="nav.html" frameborder="0" scrolling="no"></iframe>
-    </header>
+        <div class="iframe_blank"></div>
     <main>
         <br>
         <br>
@@ -53,28 +67,7 @@
         </script>
     </main>
     <footer>
-        <div class="footer_top">
-            <figure class="text_y"><img src="./images/text_y.png" alt=""></figure>
-            <div class="contact">
-                <a href="#"><img src="./images/icon/Line.png" alt=""></a>
-                <a href="#"><img src="./images/icon/Instagram.png" alt=""></a>
-                <a href="#"><img src="./images/icon/Facebook.png" alt=""></a>
-                <small>TEL：03-5333-0802
-                    <br>MAIL：okayama-accent-tshirt@gmail.com
-                </small>
-            </div>
-        </div>
-        <div class="footer_buttom">
-            <ul class="nav_buttom">
-                <li><a href="#">首頁</a></li>
-                <li><a href="#">限時特賣</a></li>
-                <li><a href="#">所有商品</a></li>
-                <li><a href="#">會員中心</a></li>
-                <li><a href="#">購物車</a></li>
-                <small>Copyright &copy; 2024 PEKABOO All Rights Reserved.</small>
-            </ul>
-        </div>
-
+        <iframe class="footer" src="footer.html" frameborder="0" scrolling="no"></iframe>
     </footer>
 </body>
 
