@@ -286,6 +286,7 @@
         $('.hamburger').click(function () {
             /* 三條跟X切換(toggleClass增減class) */
             $(this).toggleClass('is-active');
+            $('.small_expand2').hide();
             $('.menu2>li:nth-child(2),.menu2>li:nth-child(3),.menu2>li:nth-child(4),.menu2>li:nth-child(5),.menu2>li:nth-child(6)').animate({ height: 'toggle' }, 500);
         })
     })
