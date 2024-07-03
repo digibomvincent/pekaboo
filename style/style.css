@@ -336,6 +336,22 @@ a {
 }
 
 /* cart */
+.cart_num {
+    position: fixed;
+    background-color: var(--yellow);
+    border: solid 1px var(--green);
+    border-radius: 99px;
+    height: 20px;
+    width: 20px;
+    z-index: 3;
+    right: 25px;
+    top: 10px;
+    text-align: center;
+    color: var(--green);
+    font-size: 1rem;
+    line-height: 19px;
+}
+
 .cart_content {
     width: 300px;
     font-size: 1rem;
@@ -392,8 +408,6 @@ a {
 .cart_del:hover {
     background: url(../images/icon/trash_hover.svg);
 }
-
-.small_expand2
 
 .cart_more {
     text-align: center;
@@ -853,7 +867,7 @@ nav img {
         justify-content: center;
         margin-right: 10px;
     }
-   
+
     .hamburger.is-active .bar:nth-child(1) {
         transform: translateY(9px) rotate(45deg);
     }
@@ -868,13 +882,31 @@ nav img {
 }
 
 @media (max-width:640px) {
+    .cart_num {
+        position: fixed;
+        background-color: var(--yellow);
+        border: solid 1px var(--green);
+        border-radius: 99px;
+        height: 15px;
+        width: 15px;
+        z-index: 3;
+        right: 18px;
+        top: 12px;
+        text-align: center;
+        color: var(--green);
+        font-size: 0.75rem;
+        line-height: 14px;
+    }
+
     .small_expand {
         display: none;
     }
 
     .small_expand2 {
         display: block;
-        margin-top: 16px;
+        position: fixed;
+        left: 50px;
+        top: 16px;
         width: 150px;
     }
 
@@ -1192,9 +1224,10 @@ nav img {
     .title_y {
         font-size: 2rem;
     }
-   .view{
-    margin-top: 20px;
-   }
+
+    .view {
+        margin-top: 20px;
+    }
 }
 
 
