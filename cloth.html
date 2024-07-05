@@ -62,23 +62,24 @@
                         <section className="one_cloth">
                             <h2>所有商品 / 女裝 / 上著 / 短袖T恤</h2>
                             <div className="cloth_box">
-                                <form className="pic_s">
-                                    <input type="radio" name="image" id="img1" value={`./images/cloth/cl${id}.webp`} checked={selectedImage === `./images/cloth/cl${id}.webp`} onChange={handleImageChange} />
-                                    <label htmlFor="img1"><img src={`./images/cloth/cl${id}.webp`} alt="" /></label>
+                                <div className="cloth_pics">
+                                    <form className="pic_s">
+                                        <input type="radio" name="image" id="img1" value={`./images/cloth/cl${id}.webp`} checked={selectedImage === `./images/cloth/cl${id}.webp`} onChange={handleImageChange} />
+                                        <label htmlFor="img1"><img src={`./images/cloth/cl${id}.webp`} alt="" /></label>
 
-                                    <input type="radio" name="image" id="img2" value={`./images/cloth/cl${id}-1.webp`} checked={selectedImage === `./images/cloth/cl${id}-1.webp`} onChange={handleImageChange} />
-                                    <label htmlFor="img2"><img src={`./images/cloth/cl${id}-1.webp`} alt="" /></label>
+                                        <input type="radio" name="image" id="img2" value={`./images/cloth/cl${id}-1.webp`} checked={selectedImage === `./images/cloth/cl${id}-1.webp`} onChange={handleImageChange} />
+                                        <label htmlFor="img2"><img src={`./images/cloth/cl${id}-1.webp`} alt="" /></label>
 
-                                    <input type="radio" name="image" id="img3" value="./images/cloth/cl1-3.webp" checked={selectedImage === "./images/cloth/cl1-3.webp"} onChange={handleImageChange} />
-                                    <label htmlFor="img3"><img src="./images/cloth/cl1-3.webp" alt="" /></label>
+                                        <input type="radio" name="image" id="img3" value="./images/cloth/cl1-3.webp" checked={selectedImage === "./images/cloth/cl1-3.webp"} onChange={handleImageChange} />
+                                        <label htmlFor="img3"><img src="./images/cloth/cl1-3.webp" alt="" /></label>
 
-                                    <input type="radio" name="image" id="img4" value="./images/cloth/cl1-4.webp" checked={selectedImage === "./images/cloth/cl1-4.webp"} onChange={handleImageChange} />
-                                    <label htmlFor="img4"><img src="./images/cloth/cl1-4.webp" alt="" /></label>
-                                </form>
+                                        <input type="radio" name="image" id="img4" value="./images/cloth/cl1-4.webp" checked={selectedImage === "./images/cloth/cl1-4.webp"} onChange={handleImageChange} />
+                                        <label htmlFor="img4"><img src="./images/cloth/cl1-4.webp" alt="" /></label>
+                                    </form>
 
-                                <figure className="pic_l"><img id="largeImage" src={selectedImage} alt="" /></figure>
-
-                                <div>
+                                    <figure className="pic_l"><img id="largeImage" src={selectedImage} alt="" /></figure>
+                                </div>
+                                <div className="cloth_info">
                                     <h1>{product.name}</h1>
                                     <h2>NT.{product.price}</h2>
 
