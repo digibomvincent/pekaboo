@@ -146,9 +146,10 @@ table {
     --b20: #CDCDCD;
     --b5: #EDEDED;
     --b80: #343434;
-    
-    --tab-width: 420px; /* 初始值 */
-    
+
+    --tab-width: 420px;
+    /* 初始值 */
+
 }
 
 /* 共用區 */
@@ -1632,22 +1633,27 @@ nav img {
         height: 60px;
         object-fit: cover;
     }
+
     .pic_l img {
         width: 235px;
         height: 280px;
         object-fit: cover;
     }
-    .cloth_pics{
+
+    .cloth_pics {
         flex-direction: column;
     }
-    .pic_s{
+
+    .pic_s {
         flex-direction: row;
         order: 2;
     }
+
     .cloth_pics>*,
     .cloth_info {
         margin: 10px 10px;
     }
+
     :root {
         --tab-width: 305px;
     }
@@ -1658,16 +1664,20 @@ nav img {
     .cloth_box {
         flex-direction: column;
     }
-    .cloth_pics{
+
+    .cloth_pics {
         flex-direction: row;
     }
-    .pic_s{
+
+    .pic_s {
         flex-direction: column;
     }
+
     .cloth_pics>*,
     .cloth_info {
         margin: 10px 10px;
     }
+
     :root {
         --tab-width: 190px;
     }
@@ -1854,8 +1864,7 @@ nav img {
 }
 
 .onestyle_pic1>img {
-    width: 35vw;
-    min-width: 330px;
+    width: 330px;
     object-fit: cover;
 }
 
@@ -1961,6 +1970,20 @@ nav img {
     margin: 5px 0;
 }
 
+@media (max-width:820px) {
+    .onestyle_pic1>img{
+        width: 250px;
+    }
+}
+@media (max-width:640px) {
+    .onestyle_box{
+        flex-direction: column;
+        align-items: center;
+    } 
+    .onestyle_content{
+        width: auto;
+    }
+}
 /* rwd斷點 後面的權重高來蓋過 */
 /* 桌機 */
 @media (min-width:821px) {}
