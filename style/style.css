@@ -1736,7 +1736,7 @@ nav img {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     /* 半透明黑色背景 */
-    z-index: 2;
+    z-index: 3;
     /* 确保在弹出窗口之前显示 */
 }
 
@@ -1751,8 +1751,8 @@ nav img {
     background-color: var(--bg);
     padding: 25px;
     z-index: 3;
-    width: 1080px;
-    height: 580px;
+    width: 80%;
+    min-width: 350px;
     border: 2px solid var(--green);
 }
 
@@ -1785,32 +1785,36 @@ nav img {
     height: 80px;
 }
 
-.upload_content>div:nth-child(2)>* {
+.styleInfo {
+    display: flex;
+}
+
+.styleInfo_1>* {
     margin-bottom: 30px;
     padding-top: 10px;
-    width: 230px;
+    min-width: 150px;
     padding-left: 45px;
 }
 
-.upload_content>div:nth-child(3) {
+.styleInfo_2 {
     position: relative;
+    min-width: 150px;
 }
 
-.upload_content>div:nth-child(3) div {
+.styleInfo_2 div {
     margin-bottom: 30px;
     padding-top: 10px;
-    width: 230px;
     color: var(--b60);
     border-top: 1px solid var(--b60);
 }
 
-.upload_content>div:nth-child(3) input {
+.styleInfo_2 input {
     font-size: 1.2rem;
     width: 100%;
 }
 
-.upload_content>div:nth-child(3) button {
-    width: 230px;
+.styleInfo_2 button {
+    width: 100%;
     height: 45px;
     color: var(--bg);
     background: var(--green);
@@ -1971,19 +1975,43 @@ nav img {
 }
 
 @media (max-width:820px) {
-    .onestyle_pic1>img{
+
+
+    .onestyle_pic1>img {
         width: 250px;
     }
 }
+
 @media (max-width:640px) {
-    .onestyle_box{
+    .onestyle_box {
         flex-direction: column;
         align-items: center;
-    } 
-    .onestyle_content{
+    }
+
+    .onestyle_content {
         width: auto;
     }
+
+    .upload_content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .upload_pic {
+        width: 150px;
+        height: 200px;
+        margin-bottom: 10px;
+    }
+
+    .styleInfo_1>* {
+        padding-left: 20px;
+    }
+
+    .styleInfo_2 {
+        height: 250px;
+    }
 }
+
 /* rwd斷點 後面的權重高來蓋過 */
 /* 桌機 */
 @media (min-width:821px) {}

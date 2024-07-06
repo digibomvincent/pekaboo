@@ -93,59 +93,60 @@
                                 <img src="./images/icon/camera.svg" alt="" />
                                 上傳照片
                             </div>
+                            <div className="styleInfo">
+                                <div className="styleInfo_1">
+                                    <h2>單品分類</h2>
+                                    <h2>歷史訂單</h2>
+                                    <h2>身高(cm)</h2>
+                                </div>
 
-                            <div>
-                                <h2>單品分類</h2>
-                                <h2>歷史訂單</h2>
-                                <h2>身高(cm)</h2>
+                                <div className="styleInfo_2">
+                                    <div>
+                                        <label htmlFor="dropdown"></label>
+                                        <select id="dropdown" value={selectedOption} onChange={handleSelectChange}>
+                                            <option value="" disabled>站內分類搜尋</option>
+                                            <optgroup label="女裝">
+                                                <option value="上著">上著</option>
+                                                <option value="下著">下著</option>
+                                                <option value="連身">連身</option>
+                                            </optgroup>
+                                            <optgroup label="男裝">
+                                                <option value="上著">上著</option>
+                                                <option value="下著">下著</option>
+                                                <option value="連身">配件</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label htmlFor="dropdown"></label>
+                                        <select id="dropdown" value={selectedOption} onChange={handleSelectChange}>
+                                            <option value="" disabled>歷史訂單搜尋</option>
+                                            <optgroup label="2024/05/08">
+                                                <option value="">
+                                                    綺麗上品質感光滑華奢摺線上衣
+                                                </option>
+                                                <option value="" disabled>BLACK S</option>
+                                                <option value="" disabled>NT.1080</option>
+                                            </optgroup>
+                                            <optgroup label="2024/03/04">
+                                                <option value="">
+                                                    上品質感可愛美腿親膚剪綵蛋糕裙
+                                                </option>
+                                                <option value="" disabled>BLUE S</option>
+                                                <option value="" disabled>NT.1980</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                    <div><input
+                                        type="number"
+                                        value={cm}
+                                        onChange={handleInputChange}
+                                        placeholder="cm" />
+                                    </div>
+
+                                    <button>發佈</button>
+                                </div>
                             </div>
-
-                            <div>
-                                <div>
-                                    <label htmlFor="dropdown"></label>
-                                    <select id="dropdown" value={selectedOption} onChange={handleSelectChange}>
-                                        <option value="" disabled>站內分類搜尋</option>
-                                        <optgroup label="女裝">
-                                            <option value="上著">上著</option>
-                                            <option value="下著">下著</option>
-                                            <option value="連身">連身</option>
-                                        </optgroup>
-                                        <optgroup label="男裝">
-                                            <option value="上著">上著</option>
-                                            <option value="下著">下著</option>
-                                            <option value="連身">配件</option>
-                                        </optgroup>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label htmlFor="dropdown"></label>
-                                    <select id="dropdown" value={selectedOption} onChange={handleSelectChange}>
-                                        <option value="" disabled>歷史訂單搜尋</option>
-                                        <optgroup label="2024/05/08">
-                                            <option value="">
-                                                綺麗上品質感光滑華奢摺線上衣
-                                            </option>
-                                            <option value="" disabled>BLACK S</option>
-                                            <option value="" disabled>NT.1080</option>
-                                        </optgroup>
-                                        <optgroup label="2024/03/04">
-                                            <option value="">
-                                                上品質感可愛美腿親膚剪綵蛋糕裙
-                                            </option>
-                                            <option value="" disabled>BLUE S</option>
-                                            <option value="" disabled>NT.1980</option>
-                                        </optgroup>
-                                    </select>
-                                </div>
-                                <div><input
-                                    type="number"
-                                    value={cm}
-                                    onChange={handleInputChange}
-                                    placeholder="cm" />
-                                </div>
-                                <button>發佈</button>
-                            </div>
-
                         </div>
                     </section>
                 </>
